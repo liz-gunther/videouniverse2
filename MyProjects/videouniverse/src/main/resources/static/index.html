@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Our custom CSS -->
+
+    <link rel="stylesheet" href="index.css">
+    <title>Video Universe</title>
+</head>
+<body class="home">
+<header class="primary-header flex">
+    <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
+    <nav style="margin: auto">
+        <ul class="primary-navigation underline-indicators flex">
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html">Home</a>
+            </li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore.html">Explore</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus.html">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2"  href="/login">Login/Signup</a></li>
+        </ul>
+    </nav>
+</header>
+
+<div class="c-container" style="margin-top: 3rem"><br>
+    <h1 class="text-accent fs-500 ff-sans-cond uppercase">Greetings, earthling: welcome to<br>
+        <span class="fs-900 ff-sans-normal text-white" style="text-align: center">Video Universe</span></h1>
+    <p class="text-accent fs-400" style="text-align: center; padding: 2rem;">We are the Twin Cities' last (and best!)
+        movie rental store. Our doors are open to movie
+        lovers of all stripes. We pride ourselves on our expansive collection of DVDs, Blu-Rays, and VHS tapes. We've
+        got something for everybody -- Classics, Drama, Family & Kids, Sci-Fi, Horror, Comedy, Thrillers -- and so much
+        more!</p>
+</div>
+<section><br><br>
+    <div class="c-container categories">
+        <h2 class="text-light fs-500 ff-sans-cond uppercase">New Releases</h2><br>
+        <div class="itemBox" data-item="genre">
+            <a href="https://youtu.be/mqqft2x_Aa4"><img
+                    src="https://imageio.forbes.com/specials-images/imageserve/62181cb48c3558555b949c9c/Zoe-Kravitz-and-Robert-Pattinson-in--The-Batman-/0x0.jpg?fit=crop&format=jpg&crop=2147,1208,x0,y14,safe"
+                    style="width:100%"></a>
+            <h2>WHAT'S HOT</h2>
+            <h3>"The Batman"</h3>
+        </div>
+
+        <div class="itemBox" data-item="genre">
+            <a href="https://youtu.be/KQ0gFidlro8"><img
+                    src="https://assets.teenvogue.com/photos/6026c6fbda8333d99e56869f/master/pass/MINARI_00513.jpg"></a>
+            <h2>AWARD-WINNING</h2>
+            <h3>"Minari"</h3>
+        </div>
+
+        <div class="itemBox" data-item="genre">
+            <a href="https://youtu.be/CaimKeDcudo"><img src="https://media-cldnry.s-nbcnews.com/image/upload/rockcms/2022-01/220110-encanto-main-bn-1145-3ac0f6.jpg" style="width:100%"></a>
+            <h2>FOR KIDS OF ALL AGES</h2>
+            <h3>"Encanto"</h3>
+        </div>
+    </div>
+</section>
+</body>
+</html>
