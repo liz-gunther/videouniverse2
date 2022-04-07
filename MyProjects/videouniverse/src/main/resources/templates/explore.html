@@ -1,10 +1,49 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Explore</title>
 </head>
 <body>
-<div th:object="${movie}"><p th:text="${movie.title}"></p> </div>
+<header class="primary-header flex">
+    <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
+    <nav style="margin: auto">
+        <ul class="primary-navigation underline-indicators flex">
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist">Wishlist</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login.html">Login/Signup</a></li>
+        </ul>
+    </nav>
+</header>
+<div class="c-container" style="display: grid; grid-template-columns: 1fr 2fr">
+    <div id="big-button" class="large-button uppercase ff-sans-cond fs-600 text-dark bg-white" style="margin: 4rem">Not sure what<br>to watch?<br>Click me</div>
+    <div id="small-buttons" style="display: none;">
+        <a href="/drama" id="drama" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">drama</a>
+        <a href="" id="classic" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">classics</a>
+        <a href="" id="comedy" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">comedy</a>
+        <a href="#" id="kids" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">for kids</a>
+        <a href="" id="sci-fi" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">sci-fi</a>
+        <a href="/thriller" id="thriller" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">thriller</a>
+        <a href="/horror" id="horror" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">horror</a>
+        <a href="/romance" id="romance" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">romance</a>
+        <a href="" id="random" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">surprise<br>me</a>
+
+    </div>
+</div>
+<script src="/script/script.js"></script>
 </body>
 </html>

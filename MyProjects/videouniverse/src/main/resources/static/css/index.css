@@ -99,7 +99,6 @@ select {
 }
 .grid-container {
     display: grid;
-    column-gap: var(--container-gap, 2rem);
     grid-template-columns: minmax(2rem, 1fr) repeat(2,minmax(0, 40rem)) minmax(2rem, 1fr);
 }
 .grid-container > *:first-child {
@@ -185,9 +184,10 @@ select {
 }
 .primary-header {
     width: 100vw;
+    overflow: hidden;
 }
 .primary-navigation {
-    --gap: 8rem;
+    --gap: 4rem;
     --underline-gap: 2rem;
     list-style: none;
     margin: 0;
@@ -195,6 +195,9 @@ select {
 }
 .primary-navigation a {
     text-decoration: none;
+    float: left;
+    display: block;
+    text-align: center;
 }
 .underline-indicators > * {
     padding: var(--underline-gap, 1rem) 0;
@@ -256,9 +259,9 @@ form + div {
 }
 
 input.btn {
-    margin-top: .5rem;
-    margin-left: 20rem;
+    margin-top: 1rem;
     background-color: hsl( var(--clr-dark) );
+    align-items: center;
 }
 #login-box {
     margin: auto;
@@ -281,7 +284,7 @@ input.btn {
     background-image: url("https://solarsystem.nasa.gov/internal_resources/2406");
 }
 #sci-fi {
-    background-image: url("https://www.solarsystemscope.com/textures/previews/preview_jupiter.jpg");
+    background-image: url("https://solarsystem.nasa.gov/system/resources/detail_files/11650_PIA02864.jpg");
 }
 #kids {
     background-image: url("https://cosmosmagazine.com/wp-content/uploads/2019/12/300616_mercurysurface_P.jpg?x22985");
@@ -289,11 +292,14 @@ input.btn {
 #romance {
     background-image: url("https://www.solarsystemscope.com/textures/download/2k_venus_surface.jpg");
 }
-#thriller {
+#random {
     background-image: url("https://moon.nasa.gov/system/downloadable_items/151_colormap.jpg");
 }
 #big-button {
     background-image: url("https://www.solarsystemscope.com/textures/download/2k_eris_fictional.jpg");
+}
+#thriller {
+    background-image: url("https://i.imgur.com/eEjOTdY.png")
 }
 .logo {
     background-image: url("https://lh3.googleusercontent.com/eZMYcIMayCBUNpflqPtb2kHH2nliftGktZBvucsOheOLcRjqKVkY2pN6trlb1hBO96xQYl1Hj6zjrjF_KzHYuuRc2cStCHRSIAZ16LabGIF-pBxBvpfN0-2Q7aiHZBF68VHuDqMjukhtDTr50iOonDULLFD7Gdr7bE-4RBiy8vgJ3J1cy6L_xdbUkh-SoxGpPaR49fSeGMhkvi52Ia76MUQgEu10h1-DYhJeruPdMAQ-xBjToUf3PnUSc1zgvEsb2PFMRVG50hSno21VJ2sc5C8beZOyrCJR88_hq5do1bva8zfJ6A6tQnoQ9vyhJuDhtdqI5lsWVflGzpVu01c824VLX68yMqzd6pWH5f39TXYF32GHbvF1y1BhkUND0ymNwODV68MP_RkNNd0Mf9CiPGU6aBDngqq4ceoZkSOKUfu7tUv1OVeVNiy0obwJDPO6f66BZAkipc0Uym8q3ylIodgrMZdTJQHxjUUTazuvfGUpX46xlyTc3Uin7tMCj7Rh6bkx2CRQ5PkIPSdHOflMC-oOYm-TWOi-q7xSajvSqobBPLNBRbysg_d73snTIeNEia4tpa05Hywk3cwGanoLd73tiVHr3_dABzXSzwDCBaw9qNN9-8TgNjNOHM5YcyRHhycEdD9w6v3i-xI3c_rZSn-E-CwTjBVTlkBo0Y1OwBEZsmPkCCPzPSh4l5qjwNVQOiRLK6p4GI8pAiLvvd25pZtTyML6BGblWZuCfyzGXzWEMH12m4P68MdL-duArA=w705-h880-no?authuser=0");
@@ -337,4 +343,5 @@ input.btn {
     opacity: 100;
     transition: .7s;
 }
+
 

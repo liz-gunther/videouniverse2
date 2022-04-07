@@ -17,13 +17,37 @@ public class MoviesController {
         this.moviesService = moviesService;
     }
 
-    @GetMapping("/movieTemplate")
+    @GetMapping("/explore")
+    public String showExplorePage() {
+        return "explore";
+    }
+
+    @GetMapping("/horror")
     public String explorePage(Model model) {
         Movies movie = moviesService.getMovieByGenre("horror");
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
 
+    @GetMapping("/drama")
+    public String explorePageDrama(Model model) {
+        Movies movie = moviesService.getMovieByGenre("drama");
+        model.addAttribute("movie", movie);
+        return "movieTemplate";
+    }
 
+    @GetMapping("/thriller")
+    public String explorePageThriller(Model model) {
+        Movies movie = moviesService.getMovieByGenre("thriller");
+        model.addAttribute("movie", movie);
+        return "movieTemplate";
+    }
+
+    @GetMapping("/romance")
+    public String explorePageRomance(Model model) {
+        Movies movie = moviesService.getMovieByGenre("romance");
+        model.addAttribute("movie", movie);
+        return "movieTemplate";
+    }
 }
 

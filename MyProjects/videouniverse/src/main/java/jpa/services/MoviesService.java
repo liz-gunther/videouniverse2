@@ -7,5 +7,5 @@ import java.util.List;
 public interface MoviesService {
 
     Movies getMovieByGenre(String genre);
-
+    Movies getRandomMovie();
 }

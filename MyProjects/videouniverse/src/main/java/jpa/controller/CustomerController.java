@@ -25,10 +25,15 @@ public class CustomerController {
 
 
     @GetMapping("/login")
+    public String showLoginForm(Model model) {
+        return ("login");
+    }
+
+    @GetMapping("/signup")
     public String showSignupForm(Model model) {
         Customer customer = new Customer();
         model.addAttribute("customer", customer);
-        return "login";
+        return "signup";
     }
 
     @PostMapping("/saveCustomer")

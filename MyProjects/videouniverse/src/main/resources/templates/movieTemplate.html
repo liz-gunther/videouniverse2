@@ -21,22 +21,21 @@
             crossorigin="anonymous"></script>
 
     <!-- Our custom CSS -->
-    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="/css/index.css">
     <title>Explore</title>
 </head>
 <body>
+<body class="home">
 <header class="primary-header flex">
     <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
     <nav style="margin: auto">
         <ul class="primary-navigation underline-indicators flex">
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html">Home</a></li>
-            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2"
-                                  href="explore.html">Explore</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="wishlist.html">Wishlist</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="aboutus.html">About Us</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="login.html">Login/Signup</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="aboutus.html">My Profile</a></li>
-
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist">Wishlist</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
     </nav>
 </header>
@@ -51,7 +50,7 @@
             </button>
         </div>
         <div class="col">
-            <h1 class="ff-sans-cond uppercase" style="margin: 3rem" th:text="${movie.title}"></h1>
+            <h1 class="ff-sans-cond uppercase text-accent" style="margin: 3rem" th:text="${movie.title}"></h1>
             <h2 class="text-accent ff-sans-cond" style="margin: 3rem" th:text="${movie.genre} + ', ' + ${movie.year}"></h2>
             <p style="margin: 3rem" th:text="${movie.description}"></p>
 

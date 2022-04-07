@@ -21,4 +21,9 @@ public class MoviesServiceImpl implements MoviesService {
     public Movies getMovieByGenre(String genre) {
        return moviesRepository.getMovieByGenre(genre);
     }
+
+    @Override
+    public Movies getRandomMovie() {
+        return moviesRepository.getRandomMovie();
+    }
 }

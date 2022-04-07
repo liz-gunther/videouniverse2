@@ -16,7 +16,7 @@
 
 
   <!-- Our custom CSS -->
-  <link rel="stylesheet" href="/index.css">
+  <link rel="stylesheet" href="/css/index.css">
 
   <title>Login / Signup</title>
 </head>
@@ -25,11 +25,12 @@
   <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
   <nav style="margin: auto">
     <ul class="primary-navigation underline-indicators flex">
-      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="index.html">Home</a></li>
-      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="explore.html">Explore</a></li>
-      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="aboutus.html">About Us</a></li>
-      <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="login.html">Login/Signup</a>
-      </li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore.html">Explore</a></li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist.html">Wishlist</a></li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login.html">Login/Signup</a></li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile.html">My Profile</a></li>
+      <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus.html">About Us</a></li>
     </ul>
   </nav>
 </header>
@@ -42,7 +43,7 @@
   <form class="text-white ff-sans-cond" action="#" th:action="@{/saveCustomer}" th:object="${customer}" method="POST">
 
     <!-- Add hidden form field to handle update -->
-    <input type="hidden" th:field="*{id}" />
+    <input type="hidden" th:field="*{id}">
 
     <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
 
