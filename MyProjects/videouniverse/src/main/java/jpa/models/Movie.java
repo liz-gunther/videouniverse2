@@ -1,11 +1,10 @@
 package jpa.models;
 
 import javax.persistence.*;
-import java.time.Year;
 
 @Entity
-@Table(name="moviedata")
-public class Movies {
+@Table(name = "moviedata")
+public class Movie {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
@@ -13,15 +12,15 @@ public class Movies {
     private String title;
     private String year;
     private String genre;
-    @Column(name="trailer_link")
+    @Column(name = "trailer_link")
     private String trailerLink;
-    @Column(name="poster_link")
+    @Column(name = "poster_link")
     private String posterLink;
     private String description;
-    @Column(name="imdbId")
+    @Column(name = "imdbId")
     private String imdbId;
 
-    public Movies() {
+    public Movie() {
     }
 
     public String getYear() {
@@ -47,14 +46,6 @@ public class Movies {
     public void setTitle(String title) {
         this.title = title;
     }
-
-//    public Year getYear() {
-//        return year;
-//    }
-//
-//    public void setYear(Year year) {
-//        this.year = year;
-//    }
 
     public String getGenre() {
         return genre;

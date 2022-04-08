@@ -20,8 +20,8 @@ public class WishlistServiceImpl implements WishlistService {
 
 
     @Override
-    public void saveWishlist(Wishlist wishlist) {
-        this.wishlistRepository.save(wishlist);
+    public void saveToWishlist(Wishlist wishlist) {
+
     }
 
     @Override

@@ -11,8 +11,8 @@ public class Wishlist {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long wishlistId;
     private long userId;
-    @OneToMany(targetEntity = Movies.class)
-    private List<Movies> moviesList;
+    @OneToMany(targetEntity = Movie.class)
+    private List<Movie> movieList;
 
     public Wishlist() {
     }
@@ -33,11 +33,11 @@ public class Wishlist {
         this.userId = userId;
     }
 
-    public List<Movies> getMoviesList() {
-        return moviesList;
+    public List<Movie> getMoviesList() {
+        return movieList;
     }
 
-    public void setMoviesList(List<Movies> moviesList) {
-        this.moviesList = moviesList;
+    public void setMoviesList(List<Movie> movieList) {
+        this.movieList = movieList;
     }
 }

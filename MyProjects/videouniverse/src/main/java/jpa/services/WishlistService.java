@@ -1,5 +1,6 @@
 package jpa.services;
 
+import jpa.models.Movie;
 import jpa.models.Wishlist;
 import org.springframework.stereotype.Service;
 
@@ -11,7 +12,8 @@ import java.util.List;
 @Transactional
 public interface WishlistService {
 
-    void saveWishlist(Wishlist wishlist);
+    void saveToWishlist(Wishlist wishlist);
+
     List<Wishlist> getWishlistById(Long id);
 
 }
