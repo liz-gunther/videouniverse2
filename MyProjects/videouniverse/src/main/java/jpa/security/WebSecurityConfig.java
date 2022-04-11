@@ -9,18 +9,18 @@
 //import org.springframework.security.crypto.factory.PasswordEncoderFactories;
 //import org.springframework.security.crypto.password.PasswordEncoder;
 //
-//@Configuration
 //@EnableWebSecurity
+//@Configuration
 //public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 //
 //    @Override
 //    protected void configure(HttpSecurity http) throws Exception {
 //        http.authorizeRequests()
 //                .mvcMatchers("/login").permitAll()
-//                .mvcMatchers("/deleteCustomer/**").hasAnyRole("SUPERADMIN")
+//                .mvcMatchers("/deleteUser/**").hasAnyRole("SUPERADMIN")
 //                .mvcMatchers("/showFormForUpdate/**").hasAnyRole("ADMIN", "SUPERADMIN")
-//                .mvcMatchers("/showNewCustomerForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
-//                .mvcMatchers("/saveCustomer/**").hasAnyRole("ADMIN", "SUPERADMIN")
+//                .mvcMatchers("/showSignupForm/**").hasAnyRole("ADMIN", "SUPERADMIN")
+//                .mvcMatchers("/saveUser/**").hasAnyRole("ADMIN", "SUPERADMIN")
 //                .mvcMatchers("/**").hasAnyRole("USER", "ADMIN", "SUPERADMIN")
 //                .anyRequest().authenticated()
 //                .and()

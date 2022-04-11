@@ -21,7 +21,7 @@
     <!-- Our custom CSS -->
     <link rel="stylesheet" href="/css/index.css">
 
-    <title>Login / Signup</title>
+    <title>Update Wishlist</title>
 </head>
 <body>
 <header class="primary-header flex">
@@ -29,37 +29,33 @@
     <nav style="margin: auto">
         <ul class="primary-navigation underline-indicators flex">
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore.html">Explore</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist.html">Wishlist</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login.html">Login/Signup</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile.html">My Profile</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus.html">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
+            </li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
     </nav>
 </header>
-
 <div class="c-container">
-    <h1>Customer Management System</h1>
-    <hr>
-    <h2>Update Customer</h2>
 
-    <form class="text-white ff-sans-cond" action="#" th:action="@{/saveCustomer}" th:object="${customer}" method="POST">
+    <hr>
+    <h2>Update Wishlist</h2>
+
+    <form class="text-white ff-sans-cond" action="#" th:action="@{/saveWishlist}" th:object="${user}" method="POST">
 
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}">
 
-        <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
+        <input type="text" th:field="*{wishlistName}" class="form-control mb-4 col-4">
 
-        <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
-
-        <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
-
-        <button type="submit" class="btn btn-info col-2"> Update Customer</button>
+        <button type="submit" class="btn btn-info col-2"> Update Wishlist</button>
     </form>
 
     <hr>
 
-    <a th:href="@{/customerList}"> Back to Customer List</a>
+    <a th:href="@{/listofwishlists}"> Back to My Wishlists</a>
 </div>
 </body>
 

@@ -44,11 +44,25 @@
     <div class="row">
         <div class="col-md-12"></div>
     </div>
-    <div th:object="${movie}" class="row">
+    <div action="wishlist.html" th:action="@{/wishlist}" th:object="${movie}" class="row">
         <div class="col-md-2" style="margin: 3rem">
             <img th:src="@{${movie.posterLink}}">
-            <button class="bi bi-plus-square-fill" type="button" style="border-radius: 15px; margin:2rem"> add to<br>wishlist
-            </button>
+            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 1)}" method="post">
+                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
+                    to<br>wishlist<br>for user1
+                </button>
+            </form>
+            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 2)}" method="post">
+                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
+                    to<br>wishlist<br>for user2
+                </button>
+            </form>
+            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 3)}" method="post">
+                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
+                    to<br>wishlist<br>for user3
+                </button>
+            </form>
+
         </div>
         <div class="col">
             <h1 class="ff-sans-cond uppercase text-accent" style="margin: 3rem" th:text="${movie.title}"></h1>

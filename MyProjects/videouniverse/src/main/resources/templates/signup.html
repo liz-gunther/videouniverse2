@@ -42,7 +42,7 @@
 </header>
 <div class="container">
     <div id="login-box" class="bg-accent row" style="padding: 3rem; display: inline-block">
-        <form th:action="@{/saveCustomer}" th:object="${customer}" method="POST" id="register-form" class="col">
+        <form th:action="@{/saveUser}" th:object="${user}" method="POST" id="register-form" class="col">
             <div class="dropdown-divider"></div>
             <h1 class="text-dark uppercase ff-sans-cond uppercase">Sign Up</h1>
             <div class="dropdown-divider"></div>
@@ -91,7 +91,7 @@
                 <label class="form-check-label text-dark" for="agreeTerms">I agree with the <a href="">Terms of Use</a></label>
             </div>
             <br>
-            <input id="registerSubmit" type="submit" class="btn text-white">
+            <input type="submit" class="btn text-white">
         </form>
     </div>
 </div>

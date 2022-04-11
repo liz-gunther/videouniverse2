@@ -3,10 +3,12 @@ package jpa.models;
 import javax.persistence.*;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "customers")
-public class Customer {
+public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -18,8 +20,18 @@ public class Customer {
     @Column(name = "last_name")
     private String lastName;
     private String email;
+    @OneToMany(mappedBy = "user", targetEntity = Wishlist.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    private Set<Wishlist> wishlists = new HashSet<>();
 
-    public Customer() {
+    public User() {
+    }
+
+    public Set<Wishlist> getWishlists() {
+        return wishlists;
+    }
+
+    public void setWishlists(Set<Wishlist> wishlists) {
+        this.wishlists = wishlists;
     }
 
     public long getId() {

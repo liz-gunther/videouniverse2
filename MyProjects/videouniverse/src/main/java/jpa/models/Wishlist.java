@@ -1,7 +1,9 @@
 package jpa.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.List;
+import java.util.Set;
 
 @Entity
 @Table(name = "wishlist")
@@ -9,35 +11,61 @@ public class Wishlist {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    private long wishlistId;
-    private long userId;
-    @OneToMany(targetEntity = Movie.class)
-    private List<Movie> movieList;
+    private long id;
+    @ManyToOne
+    @JoinColumn(name = "userId")
+    private User user;
+    @ManyToMany(cascade = { CascadeType.ALL })
+    @JoinTable(
+            name = "Wishlist_Movie",
+            joinColumns = { @JoinColumn(name = "wishlist_id") },
+            inverseJoinColumns = { @JoinColumn(name = "movie_id") }
+    )
+    private Set<Movie> movies = new HashSet<>();
+    private String wishlistName;
 
     public Wishlist() {
     }
 
-    public long getWishlistId() {
-        return wishlistId;
+    public long getId() {
+        return id;
     }
 
-    public void setWishlistId(long wishlistId) {
-        this.wishlistId = wishlistId;
+    public void setId(long id) {
+        this.id = id;
     }
 
-    public long getUserId() {
-        return userId;
+    public User getUser() {
+        return user;
     }
 
-    public void setUserId(long userId) {
-        this.userId = userId;
+    public void setUser(User user) {
+        this.user = user;
     }
 
-    public List<Movie> getMoviesList() {
-        return movieList;
+    public Set<Movie> getMovies() {
+        return movies;
     }
 
-    public void setMoviesList(List<Movie> movieList) {
-        this.movieList = movieList;
+    public void setMovies(Set<Movie> movies) {
+        this.movies = movies;
+    }
+
+    public String getWishlistName() {
+        return wishlistName;
+    }
+
+    public void setWishlistName(String wishlistName) {
+        this.wishlistName = wishlistName;
+    }
+
+    @Override
+    public String toString() {
+        return "Wishlist{" +
+                "id=" + id +
+                ", user=" + user +
+                ", movies=" + movies +
+                ", wishlistName='" + wishlistName + '\'' +
+                '}';
     }
 }

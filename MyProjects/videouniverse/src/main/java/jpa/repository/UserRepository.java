@@ -1,13 +1,13 @@
 package jpa.repository;
 
-import jpa.models.Customer;
+import jpa.models.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Long> {
+public interface UserRepository extends JpaRepository<User, Long> {
 
-    Customer findCustomerById(Long Id);
+    User findUserById(Long Id);
 
 }
 

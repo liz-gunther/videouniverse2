@@ -19,4 +19,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
     @Query(nativeQuery = true, value = "SELECT * FROM moviedata m WHERE m.id = :id")
     Movie getMovieById(@Param("id") long id);
 
+
 }

@@ -24,9 +24,9 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist">Wishlist</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login.html">Login/Signup</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
     </nav>
 </header>
@@ -35,17 +35,17 @@
         sure what<br>to watch?<br>Click me
     </div>
     <div id="small-buttons" style="display: none;">
-        <a href="/drama" id="drama" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">drama</a>
-        <a href="/classic" id="classic" class="large-button uppercase ff-sans-cond fs-500 text-dark"
+        <a href="/category/drama" id="drama" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">drama</a>
+        <a href="/category/classic" id="classic" class="large-button uppercase ff-sans-cond fs-500 text-dark"
            style="margin: 1rem">classics</a>
-        <a href="/comedy" id="comedy" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">comedy</a>
-        <a href="/kids" id="kids" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">for
+        <a href="/category/comedy" id="comedy" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">comedy</a>
+        <a href="/category/kids" id="kids" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">for
             kids</a>
-        <a href="/scifi" id="sci-fi" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">sci-fi</a>
-        <a href="/thriller" id="thriller" class="large-button uppercase ff-sans-cond fs-500 text-dark"
+        <a href="/category/sci-fi" id="sci-fi" class="large-button uppercase ff-sans-cond fs-600 text-dark" style="margin: 1rem">sci-fi</a>
+        <a href="/category/thriller" id="thriller" class="large-button uppercase ff-sans-cond fs-500 text-dark"
            style="margin: 1rem">thriller</a>
-        <a href="/horror" id="horror" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">horror</a>
-        <a href="/romance" id="romance" class="large-button uppercase ff-sans-cond fs-500 text-dark"
+        <a href="/category/horror" id="horror" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">horror</a>
+        <a href="/category/romance" id="romance" class="large-button uppercase ff-sans-cond fs-500 text-dark"
            style="margin: 1rem">romance</a>
         <a href="/random" id="random" class="large-button uppercase ff-sans-cond fs-500 text-dark" style="margin: 1rem">surprise<br>me</a>
 

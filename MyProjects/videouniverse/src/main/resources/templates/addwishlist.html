@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Google fonts -->
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Red+Hat+Mono:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap"
+          rel="stylesheet">
+
+    <!-- Our custom CSS -->
+    <link rel="stylesheet" href="/css/index.css">
+    <title>Manage My Wishlists</title>
+</head>
+<body>
+<header class="primary-header flex">
+    <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
+    <nav style="margin: auto">
+        <ul class="primary-navigation underline-indicators flex">
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
+            </li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
+        </ul>
+    </nav>
+</header>
+<form class="text-white ff-sans-cond" action="#" th:action="@{/addWishlist}" th:object="${wishlist}" method="POST">
+
+    <!-- Add hidden form field to handle update -->
+    <input type="hidden" th:field="*{wishlistName}">
+    <button type="submit" class="btn btn-info col-2">Add Wishlist</button>
+</form>
+
+</body>
+</html>

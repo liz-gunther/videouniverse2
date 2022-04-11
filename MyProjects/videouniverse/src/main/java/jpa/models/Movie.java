@@ -1,6 +1,8 @@
 package jpa.models;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name = "moviedata")
@@ -19,8 +21,18 @@ public class Movie {
     private String description;
     @Column(name = "imdbId")
     private String imdbId;
+    @ManyToMany(mappedBy = "movies")
+    private Set<Wishlist> wishlists = new HashSet<>();
 
     public Movie() {
+    }
+
+    public Set<Wishlist> getWishlists() {
+        return wishlists;
+    }
+
+    public void setWishlists(Set<Wishlist> wishlists) {
+        this.wishlists = wishlists;
     }
 
     public String getYear() {

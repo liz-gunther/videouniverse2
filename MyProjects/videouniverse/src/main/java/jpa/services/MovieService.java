@@ -9,4 +9,5 @@ public interface MovieService {
     Movie getRandomMovie();
 
     Movie getMovieById(long id);
+
 }
