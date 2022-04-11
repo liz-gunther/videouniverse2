@@ -19,4 +19,6 @@ public interface WishlistService {
 
     Wishlist getWishlistByUserId(long id);
 
+    void deleteMovieFromWishlist(long id);
+
 }

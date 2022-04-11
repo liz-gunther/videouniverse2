@@ -33,9 +33,9 @@ public class WishlistController {
         this.userService = userService;
     }
 
-    @GetMapping("/listofwishlists/{id}")
-    public String showWishlists(@PathVariable(value = "id") long id, Model model) {
-        model.addAttribute("wishlists", wishlistService.getWishlistsByUserId(id));
+    @GetMapping("/wishlist/")
+    public String showWishlists(Model model) {
+        model.addAttribute("wishlists", wishlistService.getWishlistsByUserId(1));
         return "listofwishlists";
     }
 

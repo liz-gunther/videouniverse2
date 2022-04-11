@@ -1,0 +1,8 @@
+My best estimate for my project is that I'm a little more than halfway done.
+
+During the weekend, I got the CRUD operations working for my Users & Wishlists working,
+I am now in the process of designing pages so that you can choose which wishlist you
+would like to view.
+
+I am hoping to get sessions working so that I can display the wishlists for the current user only.
+

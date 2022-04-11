@@ -187,8 +187,8 @@ select {
     overflow: hidden;
 }
 .primary-navigation {
-    --gap: 4rem;
-    --underline-gap: 2rem;
+    --gap: 3rem;
+    --underline-gap: 1rem;
     list-style: none;
     margin: 0;
     padding: 0;

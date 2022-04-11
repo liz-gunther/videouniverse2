@@ -25,9 +25,14 @@ public class UserController {
         this.userService = userService;
     }
 
+    @GetMapping("/aboutus")
+    public String showAboutUsPage() {
+        return "aboutus";
+    }
     //show the list of users
     @GetMapping("/profile")
     public String showUsers(Model model) {
+
         model.addAttribute("users", userService.getAllUsers());
         return "profile";
     }
@@ -42,11 +47,6 @@ public class UserController {
     public String saveUser(@ModelAttribute("user") User user) {
         userService.saveUser(user);
         return "redirect:/";
-    }
-
-    @GetMapping("/login")
-    public String showLoginForm(Model model) {
-        return ("login");
     }
 
 
@@ -69,10 +69,5 @@ public class UserController {
 //        model.addAttribute("wishlists", user.getWishlists());
 //        return "listofwishlists";
 //    }
-//    @GetMapping("/logout")
-//    public String logout(HttpServletRequest request){
-//        HttpSession httpSession = request.getSession();
-//        httpSession.invalidate();
-//        return "redirect:/";
-//    }
+
 }

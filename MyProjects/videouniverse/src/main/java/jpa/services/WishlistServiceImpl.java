@@ -45,5 +45,10 @@ public class WishlistServiceImpl implements WishlistService {
         return wishlistRepository.getWishlistByUserId(id);
     }
 
+    @Override
+    public void deleteMovieFromWishlist(long id) {
+
+    }
+
 
 }

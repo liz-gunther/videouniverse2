@@ -29,15 +29,15 @@
     <nav style="margin: auto">
         <ul class="primary-navigation underline-indicators flex">
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore.html">Explore</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist.html">Wishlist</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login.html">Login/Signup</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile.html">My Profile</a></li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus.html">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
+            </li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
     </nav>
 </header>
-
 <div class="c-container">
     <hr>
     <h2>Update User</h2>
