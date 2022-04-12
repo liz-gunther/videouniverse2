@@ -1,3 +1,17 @@
+/* -----------------------------*/
+/* April 12th - about 55% done  */
+/* -----------------------------*/
+
+Yesterday I attempted to add the registration page (per the lab we did together today in class) - today I hope
+to get that ironed out so that I can move forward with restructuring my mapping so that it accurately reflects
+the choices of the user who is currently on the app. I've got the registration part working - now just ironing
+out the login page.
+
+
+/* -----------------------------*/
+/* April 11th - about 50% done  */
+/* -----------------------------*/
+
 My best estimate for my project is that I'm a little more than halfway done.
 
 During the weekend, I got the CRUD operations working for my Users & Wishlists working,
@@ -5,4 +19,3 @@ I am now in the process of designing pages so that you can choose which wishlist
 would like to view.
 
 I am hoping to get sessions working so that I can display the wishlists for the current user only.
-
