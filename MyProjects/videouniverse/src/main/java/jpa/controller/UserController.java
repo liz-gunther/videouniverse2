@@ -1,6 +1,8 @@
 package jpa.controller;
 
 import jpa.models.User;
+import jpa.services.UserRegistrationDto;
+import jpa.services.UserDetailsService;
 import jpa.services.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -11,42 +13,48 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.security.Principal;
 
 @Controller
 public class UserController {
 
     private UserService userService;
+    private UserDetailsService userDetailsService;
 
     @Autowired
-    public UserController(UserService userService) {
+    public UserController(UserService userService, UserDetailsService userDetailsService) {
         this.userService = userService;
+        this.userDetailsService = userDetailsService;
     }
 
-    @GetMapping("/aboutus")
-    public String showAboutUsPage() {
-        return "aboutus";
-    }
     //show the list of users
     @GetMapping("/profile")
-    public String showUsers(Model model) {
-
-        model.addAttribute("users", userService.getAllUsers());
+    public String showUser(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("user", userService.getUserById(currentUser.getId()));
         return "profile";
     }
     //save user to database
+
     @GetMapping("/signup")
-    public String showSignupForm(Model model) {
-        User user = new User();
-        model.addAttribute("user", user);
+    public String showRegistrationForm(Model model) {
+        model.addAttribute("user", new UserRegistrationDto());
         return "signup";
     }
-    @PostMapping("/saveUser")
-    public String saveUser(@ModelAttribute("user") User user) {
-        userService.saveUser(user);
-        return "redirect:/";
+
+
+    @PostMapping("/signup")
+    public String saveNewUser(@ModelAttribute("user") @Valid UserRegistrationDto userDto, BindingResult result){
+        User existing = userService.findByEmail(userDto.getEmail());
+        if (existing != null){
+            result.rejectValue("email", null, "There is already an account registered with that email");
+        }
+        if (result.hasErrors()){
+            return "signup";
+        }
+        userDetailsService.save(userDto);
+        return "redirect:/signup?success";
     }
 
 
@@ -57,17 +65,11 @@ public class UserController {
         return "updateUser";
     }
 
+
     @GetMapping("/deleteUser/{id}")
     public String deleteUser(@PathVariable(value = "id") long id) {
         this.userService.deleteUserById(id);
-        return "redirect:/profile";
+        return "redirect:/";
     }
-
-//    @GetMapping("/wishlist/{id}")
-//    public String showWishlist(@PathVariable(value = "id") long id, Model model) {
-//        User user = userService.getUserById(id);
-//        model.addAttribute("wishlists", user.getWishlists());
-//        return "listofwishlists";
-//    }
 
 }

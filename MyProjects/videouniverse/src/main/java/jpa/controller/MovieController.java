@@ -2,17 +2,18 @@ package jpa.controller;
 
 import jpa.models.Movie;
 import jpa.models.Wishlist;
+import jpa.repository.WishlistRepository;
 import jpa.services.MovieService;
 import jpa.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 @Controller
 public class MovieController {
@@ -65,6 +66,7 @@ public class MovieController {
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
+
 
 //    @PostMapping("/saveToWishlist")
 //    public String saveMovieToWishlist(@ModelAttribute("movie") @Valid Wishlist wishlist) {

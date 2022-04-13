@@ -15,10 +15,13 @@ public interface WishlistService {
 
     Wishlist getWishlistById(long id);
 
+    void saveWishlist(Wishlist wishlist);
+
     void deleteWishlistById(long id);
 
     Wishlist getWishlistByUserId(long id);
 
     void deleteMovieFromWishlist(long id);
+
 
 }

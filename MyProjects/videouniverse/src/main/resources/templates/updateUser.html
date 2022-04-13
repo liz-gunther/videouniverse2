@@ -32,7 +32,7 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlists">My Wishlists</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
             <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
@@ -53,12 +53,12 @@
 
         <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
 
-        <button type="submit" class="btn btn-info col-2"> Update User</button>
+        <button type="submit" class="btn btn-info col-2"> Update Profile</button>
     </form>
 
     <hr>
 
-    <a th:href="@{/userList}"> Back to User List</a>
+    <a th:href="@{/profile}"> Back to Profile</a>
 </div>
 </body>
 

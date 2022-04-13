@@ -36,6 +36,11 @@ public class WishlistServiceImpl implements WishlistService {
     }
 
     @Override
+    public void saveWishlist(Wishlist wishlist) {
+        this.wishlistRepository.save(wishlist);
+    }
+
+    @Override
     public void deleteWishlistById(long id) {
         this.wishlistRepository.deleteById(id);
     }

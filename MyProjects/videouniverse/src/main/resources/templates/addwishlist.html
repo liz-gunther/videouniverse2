@@ -24,16 +24,18 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlists">My Wishlists</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
     </nav>
 </header>
-<form class="text-white ff-sans-cond" action="#" th:action="@{/addWishlist}" th:object="${wishlist}" method="POST">
+<form class="text-white ff-sans-cond" action="#" th:action="@{/addwishlist}" th:object="${wishlist}" method="POST">
 
-    <!-- Add hidden form field to handle update -->
-    <input type="hidden" th:field="*{wishlistName}">
+    <div>
+        <label class="control-label">Wishlist Name</label> <input
+            id="firstName" class="form-control" th:field="*{wishlistName}" />
+    </div>
     <button type="submit" class="btn btn-info col-2">Add Wishlist</button>
 </form>
 

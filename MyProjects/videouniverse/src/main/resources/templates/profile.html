@@ -32,7 +32,7 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlists">My Wishlists</a></li>
             <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
@@ -40,8 +40,6 @@
 </header>
 <div class="c-container my-2 text-white ff-sans-cond">
     <h1>My Profile</h1>
-
-    <a th:href="@{/login}" class="btn btn-primary btn-sm mb-3"> Add User</a>
 
     <table border="1" class="table table-striped table-responsive-md text-white ff-sans-normal"
            style="--bs-table-striped-color: #aae049;">
@@ -54,7 +52,7 @@
         </tr>
         </thead>
         <tbody>
-        <tr th:each="user : ${users}">
+        <tr th:object="${user}">
             <td th:text="${user.firstName}"></td>
             <td th:text="${user.lastName}"></td>
             <td th:text="${user.email}"></td>

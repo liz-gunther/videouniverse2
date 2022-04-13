@@ -34,7 +34,7 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlists">My Wishlists</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
@@ -47,19 +47,13 @@
     <div action="wishlist.html" th:action="@{/wishlist}" th:object="${movie}" class="row">
         <div class="col-md-2" style="margin: 3rem">
             <img th:src="@{${movie.posterLink}}">
-            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 1)}" method="post">
-                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
-                    to<br>wishlist<br>for user1
-                </button>
-            </form>
-            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 2)}" method="post">
-                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
-                    to<br>wishlist<br>for user2
-                </button>
-            </form>
-            <form th:action="@{/addmovietouser/{movieid}/{userid}(movieid = ${movie.id}, userid = 3)}" method="post">
-                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
-                    to<br>wishlist<br>for user3
+            <form th:action="@{/addmovietouser/{movieid}/(movieid = ${movie.id})}" method="post">
+
+                <select class="form-control" id="dropDownList">
+                    <option value="0">select option</option>
+                    <option th:each="wishlist : ${wishlists}" th:value="${wishlist}" th:text="${wishlist}"></option>
+                </select>
+                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add to<br>wishlist
                 </button>
             </form>
 

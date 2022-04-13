@@ -32,7 +32,7 @@
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
-            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlist" th:href="@{/wishlist/{user_id}(user_id=${userid})}">My Wishlists</a></li>
+            <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/wishlists">My Wishlists</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/profile">My Profile</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/login">Login/Signup</a></li>
         </ul>
@@ -43,7 +43,7 @@
     <hr>
     <h2>Update Wishlist</h2>
 
-    <form class="text-white ff-sans-cond" action="#" th:action="@{/saveWishlist}" th:object="${user}" method="POST">
+    <form class="text-white ff-sans-cond" action="#" th:action="@{/saveWishlist}" th:object="${wishlist}" method="POST">
 
         <!-- Add hidden form field to handle update -->
         <input type="hidden" th:field="*{id}">

@@ -7,17 +7,16 @@ import jpa.services.MovieService;
 import jpa.services.UserService;
 import jpa.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
+import java.security.Principal;
+import java.util.Iterator;
 import java.util.List;
+import java.util.Set;
 
 @Controller
 public class WishlistController {
@@ -33,17 +32,25 @@ public class WishlistController {
         this.userService = userService;
     }
 
-    @GetMapping("/wishlist/")
-    public String showWishlists(Model model) {
-        model.addAttribute("wishlists", wishlistService.getWishlistsByUserId(1));
+
+    @GetMapping("/wishlists")
+    public String showWishlists(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", wishlistService.getWishlistsByUserId(currentUser.getId()));
         return "listofwishlists";
     }
 
-    @GetMapping("/addwishlist/")
+    @GetMapping("/addwishlist")
     public String addWishlist(Model model) {
         Wishlist wishlist = new Wishlist();
         model.addAttribute("wishlist", wishlist);
         return "addwishlist";
+    }
+
+    @PostMapping("/addwishlist")
+    public String saveNewWishlist(@ModelAttribute("wishlist") Wishlist wishlist) {
+        wishlistService.saveWishlist(wishlist);
+        return "listofwishlists";
     }
 
     @GetMapping("/showFormForUpdateWishlist/{id}")
@@ -62,7 +69,9 @@ public class WishlistController {
     }
 
     @PostMapping("/saveWishlist")
-    public String saveWishlist(@ModelAttribute("wishlist") Wishlist wishlist) {
+    public String saveWishlist(@ModelAttribute("wishlist") Wishlist wishlist, Model model, Principal principal) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("userId", currentUser.getId());
         wishlistService.saveToWishlist(wishlist);
         return "redirect:/listofwishlists";
     }
@@ -81,6 +90,20 @@ public class WishlistController {
         Wishlist wishlist = wishlistService.getWishlistById(id);
         model.addAttribute("moviesList", wishlist.getMovies());
         return "wishlist";
+    }
+
+    @RequestMapping(value = "/populateDropDownList", method = RequestMethod.GET)
+    public String populateList(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        Set<Wishlist> wishlists = wishlistService.getWishlistsByUserId(currentUser.getId());
+        Iterator<Wishlist> wishlistIterator = wishlists.iterator();
+        while (wishlistIterator.hasNext()) {
+            //do i need a for loop here
+            //to generate the name of the
+            //wishlist to populate the menu
+            model.addAttribute("wishlist", ???? );
+        }
+        return "dropDownList/dropDownList.html";
     }
 
 }
