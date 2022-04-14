@@ -1,4 +1,13 @@
 /* -----------------------------*/
+/* April 14th - about 80% done  */
+/* -----------------------------*/
+
+Got all my CRUD working, except for the add movie to a particular user's wishlist. I was able to update and
+delete the current user, as well as create multiple wishlists for each user. I am having an issue with
+deleting wishlists, as they are connected to multiple tables. I still haven't gotten a good start on my tests
+yet, but I plan to start in earnest tomorrow.
+
+/* -----------------------------*/
 /* April 13th - about 70% done  */
 /* -----------------------------*/
 

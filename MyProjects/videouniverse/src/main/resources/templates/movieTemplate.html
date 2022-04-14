@@ -52,8 +52,9 @@
                 <select class="form-control" id="dropDownList" name="user.wishlists" required>
                     <option value="0">select wishlist</option>
                     <option th:each="wishlist : ${wishlists}" th:value="${wishlist}"
-                            th:text="${wishlist.wishlistName}"></option>
-                    <!--                                th:selected="(${wishlist.id} == *{wishlist.id}"></option>-->
+                            th:text="${wishlist.wishlistName}">
+<!--                        th:selected="(${wishlist.id} == *{wishlist.id})">-->
+                    </option>
                 </select>
                 <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
                     to<br>wishlist

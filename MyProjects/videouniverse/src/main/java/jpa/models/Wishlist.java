@@ -11,14 +11,14 @@ public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-//    @ManyToOne
+    //    @ManyToOne
 //    @JoinColumn(name = "userId")
 //    private User user;
-    @ManyToMany(cascade = { CascadeType.ALL })
+    @ManyToMany(cascade = {CascadeType.ALL})
     @JoinTable(
             name = "Wishlist_Movie",
-            joinColumns = { @JoinColumn(name = "wishlist_id") },
-            inverseJoinColumns = { @JoinColumn(name = "movie_id") }
+            joinColumns = {@JoinColumn(name = "wishlist_id")},
+            inverseJoinColumns = {@JoinColumn(name = "movie_id")}
     )
     private Set<Movie> movies = new HashSet<>();
     private String wishlistName;

@@ -56,13 +56,13 @@ public class WishlistController {
         userService.saveUser(currentUser);
         return "redirect:/wishlists";
     }
-
-    @GetMapping("/showFormForUpdateWishlist/{id}")
-    public String showFormForUpdateWishlist(@PathVariable(value = "id") long id, Model model) {
-        Wishlist wishlist = wishlistService.getWishlistById(id);
-        model.addAttribute("wishlist", wishlist);
-        return "updatewishlists";
-    }
+//
+//    @GetMapping("/showFormForUpdateWishlist/{id}")
+//    public String showFormForUpdateWishlist(@PathVariable(value = "id") long id, Model model) {
+//        Wishlist wishlist = wishlistService.getWishlistById(id);
+//        model.addAttribute("wishlist", wishlist);
+//        return "updatewishlists";
+//    }
 
     @GetMapping("/deleteWishlist/{id}")
     public String deleteWishlist(@PathVariable(value = "id") long id) {

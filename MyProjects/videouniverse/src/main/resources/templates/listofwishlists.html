@@ -55,8 +55,9 @@
         <tbody>
         <tr th:each="wishlist : ${wishlists}">
             <td th:text="${wishlist.wishlistName}"></td>
-            <td> <a th:href="@{/showFormForUpdateWishlists}" class="btn btn-primary">Update</a>
-                <a th:href="@{/deleteWishlist/{wishlistId}(wishlistId = ${wishlist.id})}" class="btn btn-danger">Delete</a>
+<!--            <td>
+<a th:href="@{/showFormForUpdateWishlists}" class="btn btn-primary">Update</a>-->
+              <td>  <a th:href="@{/deleteWishlist/{id}(id = ${wishlist.id})}" class="btn btn-danger">Delete</a>
             </td>
         </tr>
         </tbody>
