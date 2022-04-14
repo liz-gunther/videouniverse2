@@ -10,11 +10,11 @@ import java.util.Set;
 @Repository
 public interface WishlistRepository extends JpaRepository<Wishlist, Long> {
 
-    Set<Wishlist> getByUserId(long userId);
+//    Set<Wishlist> getByUserId(long userId);
 
     Wishlist getById(long id);
 
-    Wishlist getWishlistByUserId(long userid);
+//    Wishlist getWishlistByUserId(long userid);
 
 
 }

@@ -21,19 +21,12 @@ public class Movie {
     private String description;
     @Column(name = "imdbId")
     private String imdbId;
-    @ManyToMany(mappedBy = "movies")
-    private Set<Wishlist> wishlists = new HashSet<>();
+//    @ManyToMany(mappedBy = "movies")
+//    private Set<Wishlist> wishlists = new HashSet<>();
 
     public Movie() {
     }
 
-    public Set<Wishlist> getWishlists() {
-        return wishlists;
-    }
-
-    public void setWishlists(Set<Wishlist> wishlists) {
-        this.wishlists = wishlists;
-    }
 
     public String getYear() {
         return year;

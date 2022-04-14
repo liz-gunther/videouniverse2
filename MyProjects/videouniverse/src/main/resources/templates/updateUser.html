@@ -28,7 +28,7 @@
     <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
     <nav style="margin: auto">
         <ul class="primary-navigation underline-indicators flex">
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/">Home</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
@@ -42,16 +42,21 @@
     <hr>
     <h2>Update User</h2>
 
-    <form class="text-white ff-sans-cond" action="#" th:action="@{/saveUser}" th:object="${user}" method="POST">
+    <form class="text-white ff-sans-cond" action="#" th:action="@{/updateUser}" th:object="${user}" method="POST">
 
         <!-- Add hidden form field to handle update -->
-        <input type="hidden" th:field="*{id}">
+        <input type="hidden" th:field="${user.id}">
 
         <input type="text" th:field="*{firstName}" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{lastName}" class="form-control mb-4 col-4">
 
         <input type="text" th:field="*{email}" class="form-control mb-4 col-4">
+
+        <input type="hidden" th:field="${user.password}" class="form-control mb-4 col-4">
+
+        <input type="hidden" th:field="${user.roles}" class="form-control mb-4 col-4">
+
 
         <button type="submit" class="btn btn-info col-2"> Update Profile</button>
     </form>

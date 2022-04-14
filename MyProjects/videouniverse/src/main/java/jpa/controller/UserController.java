@@ -64,6 +64,11 @@ public class UserController {
         model.addAttribute("user", user);
         return "updateUser";
     }
+    @PostMapping("/updateUser")
+    public String saveUser(@ModelAttribute("user") User user) {
+        userService.saveUser(user);
+        return "redirect:/profile";
+    }
 
 
     @GetMapping("/deleteUser/{id}")

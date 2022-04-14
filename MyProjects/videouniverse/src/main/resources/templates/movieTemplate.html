@@ -24,13 +24,12 @@
     <link rel="stylesheet" href="/css/index.css">
     <title>Explore</title>
 </head>
-<body>
 <body class="home">
 <header class="primary-header flex">
     <div style="width: 75px; object-fit: scale-down;"><img src="/images/greenAI.png"></div>
     <nav style="margin: auto">
         <ul class="primary-navigation underline-indicators flex">
-            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/index.html">Home</a></li>
+            <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/">Home</a></li>
             <li><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/aboutus">About Us</a></li>
             <li class="active"><a class="ff-sans-cond uppercase text-white letter-spacing-2" href="/explore">Explore</a>
             </li>
@@ -44,16 +43,20 @@
     <div class="row">
         <div class="col-md-12"></div>
     </div>
-    <div action="wishlist.html" th:action="@{/wishlist}" th:object="${movie}" class="row">
+    <div th:object="${movie}" class="row">
+
         <div class="col-md-2" style="margin: 3rem">
-            <img th:src="@{${movie.posterLink}}">
+            <img th:src="@{${movie.posterLink}}"><br>
             <form th:action="@{/addmovietouser/{movieid}/(movieid = ${movie.id})}" method="post">
 
-                <select class="form-control" id="dropDownList">
-                    <option value="0">select option</option>
-                    <option th:each="wishlist : ${wishlists}" th:value="${wishlist}" th:text="${wishlist}"></option>
+                <select class="form-control" id="dropDownList" name="user.wishlists" required>
+                    <option value="0">select wishlist</option>
+                    <option th:each="wishlist : ${wishlists}" th:value="${wishlist}"
+                            th:text="${wishlist.wishlistName}"></option>
+                    <!--                                th:selected="(${wishlist.id} == *{wishlist.id}"></option>-->
                 </select>
-                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add to<br>wishlist
+                <button class="bi bi-plus-square-fill" type="submit" style="border-radius: 15px; margin:2rem"> add
+                    to<br>wishlist
                 </button>
             </form>
 

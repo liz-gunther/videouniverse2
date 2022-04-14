@@ -11,11 +11,13 @@ import javax.servlet.http.HttpSession;
 public class LoginController {
 
 
+    @GetMapping("/")
+    public String showHomePage() { return "index"; }
+
     @GetMapping("/aboutus")
     public String showAboutUsPage() {
         return "aboutus";
     }
-
 
     @GetMapping("/login")
     public String showLogin(Model model) {

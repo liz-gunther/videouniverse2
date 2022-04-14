@@ -32,7 +32,7 @@ public class User {
                     name = "role_id", referencedColumnName = "id"))
     private Collection<Role> roles;
 
-    @OneToMany(mappedBy = "user", targetEntity = Wishlist.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
+    @OneToMany(targetEntity = Wishlist.class, fetch = FetchType.EAGER, cascade = {CascadeType.ALL})
     private Set<Wishlist> wishlists = new HashSet<>();
 
     public User() {
@@ -117,8 +117,8 @@ public class User {
                 ", lastName='" + lastName + '\'' +
                 ", email='" + email + '\'' +
                 ", password='" + password + '\'' +
-                ", roles=" + roles +
-                ", wishlists=" + wishlists +
+//                ", roles=" + roles +
+//                ", wishlists=" + wishlists +
                 '}';
     }
 }

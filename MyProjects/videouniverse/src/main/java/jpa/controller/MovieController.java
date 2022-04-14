@@ -1,67 +1,80 @@
 package jpa.controller;
 
 import jpa.models.Movie;
+import jpa.models.User;
 import jpa.models.Wishlist;
-import jpa.repository.WishlistRepository;
 import jpa.services.MovieService;
+import jpa.services.UserService;
 import jpa.services.WishlistService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
-import javax.validation.Valid;
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.security.Principal;
+import java.util.Set;
 
 @Controller
 public class MovieController {
 
     private MovieService movieService;
+    private UserService userService;
+    private WishlistService wishlistService;
 
 
     @Autowired
-    public MovieController(MovieService movieService) {
+    public MovieController(MovieService movieService, UserService userService, WishlistService wishlistService) {
         this.movieService = movieService;
+        this.userService = userService;
+        this.wishlistService = wishlistService;
     }
 
     @GetMapping("/explore")
-    public String showExplorePage(Model model) {
-        model.addAttribute("userid", 1);
+    public String showExplorePage() {
+
         return "explore";
     }
 
     @GetMapping("/category/{genre}")
-    public String explorePageHorror(@PathVariable(value = "genre") String genre, Model model) {
+    public String explorePageHorror(@PathVariable(value = "genre") String genre, Principal principal, Model model) {
         Movie movie = movieService.getMovieByGenre(genre);
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", currentUser.getWishlists());
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
 
     @GetMapping("/random")
-    public String explorePageRandom(Model model) {
+    public String explorePageRandom(Principal principal, Model model) {
         Movie movie = movieService.getRandomMovie();
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", currentUser.getWishlists());
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
 
     @GetMapping("/thebatman")
-    public String explorePageBatman(Model model) {
+    public String explorePageBatman(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", currentUser.getWishlists());
         Movie movie = movieService.getMovieById(309);
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
 
     @GetMapping("/minari")
-    public String explorePageMinari(Model model) {
+    public String explorePageMinari(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", currentUser.getWishlists());
         Movie movie = movieService.getMovieById(102);
         model.addAttribute("movie", movie);
         return "movieTemplate";
     }
 
     @GetMapping("/encanto")
-    public String explorePageEncanto(Model model) {
+    public String explorePageEncanto(Principal principal, Model model) {
+        User currentUser = userService.findByEmail(principal.getName());
+        model.addAttribute("wishlists", currentUser.getWishlists());
         Movie movie = movieService.getMovieById(308);
         model.addAttribute("movie", movie);
         return "movieTemplate";

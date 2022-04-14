@@ -32,7 +32,7 @@ public class WishlistController {
         this.userService = userService;
     }
 
-
+    //This works
     @GetMapping("/wishlists")
     public String showWishlists(Principal principal, Model model) {
         User currentUser = userService.findByEmail(principal.getName());
@@ -40,21 +40,25 @@ public class WishlistController {
         return "listofwishlists";
     }
 
+    //This works
     @GetMapping("/addwishlist")
     public String addWishlist(Model model) {
         Wishlist wishlist = new Wishlist();
         model.addAttribute("wishlist", wishlist);
         return "addwishlist";
     }
-
+    //This works
     @PostMapping("/addwishlist")
-    public String saveNewWishlist(@ModelAttribute("wishlist") Wishlist wishlist) {
+    public String saveNewWishlist(@ModelAttribute("wishlist") Wishlist wishlist, Principal principal) {
+        User currentUser = userService.findByEmail(principal.getName());
         wishlistService.saveWishlist(wishlist);
-        return "listofwishlists";
+        currentUser.getWishlists().add(wishlist);
+        userService.saveUser(currentUser);
+        return "redirect:/wishlists";
     }
 
     @GetMapping("/showFormForUpdateWishlist/{id}")
-    public String showFormForUpdateWishlists(@PathVariable(value = "id") long id, Model model) {
+    public String showFormForUpdateWishlist(@PathVariable(value = "id") long id, Model model) {
         Wishlist wishlist = wishlistService.getWishlistById(id);
         model.addAttribute("wishlist", wishlist);
         return "updatewishlists";
@@ -62,9 +66,7 @@ public class WishlistController {
 
     @GetMapping("/deleteWishlist/{id}")
     public String deleteWishlist(@PathVariable(value = "id") long id) {
-
-        // call delete employee method
-        this.wishlistService.deleteWishlistById(id);
+        wishlistService.deleteWishlistById(id);
         return "redirect:/listofwishlists";
     }
 
@@ -76,10 +78,10 @@ public class WishlistController {
         return "redirect:/listofwishlists";
     }
 
-    @PostMapping("/addmovietouser/{movieid}/{userid}")
-    public String addMovieToUser(@PathVariable(value = "movieid") long id, @PathVariable(value = "userid") long userid) {
-        Movie movie = movieService.getMovieById(id);
-        Wishlist wishlist = wishlistService.getWishlistByUserId(userid);
+    @PostMapping("/addmovietowishlist/{movieid}/{wishlistid}")
+    public String addMovieTowishlist(@PathVariable(value = "movieid") long movieid, @PathVariable(value = "wishlistid") long wishlistid) {
+        Movie movie = movieService.getMovieById(movieid);
+        Wishlist wishlist = wishlistService.getWishlistById(wishlistid);
         wishlist.getMovies().add(movie);
         wishlistService.saveToWishlist(wishlist);
         return String.format("redirect:/wishlist/%d", wishlist.getId());
@@ -96,13 +98,7 @@ public class WishlistController {
     public String populateList(Principal principal, Model model) {
         User currentUser = userService.findByEmail(principal.getName());
         Set<Wishlist> wishlists = wishlistService.getWishlistsByUserId(currentUser.getId());
-        Iterator<Wishlist> wishlistIterator = wishlists.iterator();
-        while (wishlistIterator.hasNext()) {
-            //do i need a for loop here
-            //to generate the name of the
-            //wishlist to populate the menu
-            model.addAttribute("wishlist", ???? );
-        }
+        model.addAttribute("wishlists", wishlists);
         return "dropDownList/dropDownList.html";
     }
 

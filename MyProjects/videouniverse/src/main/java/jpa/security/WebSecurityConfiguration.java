@@ -32,13 +32,12 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
                 .authorizeRequests()
                 .antMatchers(
                         "/",
-                        "/aboutus",
-                        "/explore",
-                        "/signup**",
-                        "/js/**",
                         "/css/**",
                         "/images/**",
                         "/script/**",
+                        "/aboutus",
+                        "/explore",
+                        "/signup**",
                         "/webjars/**").permitAll()
                 .anyRequest().authenticated()
                 .and()
@@ -80,11 +79,9 @@ public class WebSecurityConfiguration extends WebSecurityConfigurerAdapter{
 //                .withUser("superadmin").password(passwordEncoder.encode("superadmin")).roles("USER","ADMIN","SUPERADMIN");
 //    }
 
-//    @Override
-//    public void configure(WebSecurity web) throws Exception {
-//        web.ignoring().antMatchers("/css/**");
-//        web.ignoring().antMatchers("/images/**");
-//        web.ignoring().antMatchers("/script/**");
-//
-//    }
+    @Override
+    public void configure(WebSecurity web) throws Exception {
+        web.ignoring().antMatchers("/static/**");
+
+    }
 }

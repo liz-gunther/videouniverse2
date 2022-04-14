@@ -2,7 +2,6 @@ package jpa.models;
 
 import javax.persistence.*;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Entity
@@ -12,9 +11,9 @@ public class Wishlist {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private long id;
-    @ManyToOne
-    @JoinColumn(name = "userId")
-    private User user;
+//    @ManyToOne
+//    @JoinColumn(name = "userId")
+//    private User user;
     @ManyToMany(cascade = { CascadeType.ALL })
     @JoinTable(
             name = "Wishlist_Movie",
@@ -35,13 +34,13 @@ public class Wishlist {
         this.id = id;
     }
 
-    public User getUser() {
-        return user;
-    }
-
-    public void setUser(User user) {
-        this.user = user;
-    }
+//    public User getUser() {
+//        return user;
+//    }
+//
+//    public void setUser(User user) {
+//        this.user = user;
+//    }
 
     public Set<Movie> getMovies() {
         return movies;
@@ -63,9 +62,11 @@ public class Wishlist {
     public String toString() {
         return "Wishlist{" +
                 "id=" + id +
-                ", user=" + user +
                 ", movies=" + movies +
                 ", wishlistName='" + wishlistName + '\'' +
                 '}';
+    }
+
+    public void setUserId(long id) {
     }
 }
